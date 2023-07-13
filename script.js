@@ -59,7 +59,7 @@ var quizLength;
 var questionContainer = document.querySelector("#quiz-container");
 // timer function places the time remaining in the H2 heading as "Time remaining: "
 function timer() {
-    timerEl.textContent = "Time remaining: " + timeLeft + "s";
+    timerEl.textContent = "Time left: " + timeLeft + "s";
     quizLength = setInterval(function () {
         // if statment calls out how time is counting down from the timeLeft
         if (timeLeft > 0) {
@@ -75,7 +75,7 @@ function adjustTime(amount) {
     if (timeLeft < 0) {
         timeLeft = 0;
     }
-    timerEl.textContent = "Time remaining: " + timeLeft + "s";
+    timerEl.textContent = "Time left: " + timeLeft + "s";
 };
 // event listener for the button element "begin", initiates 'timer' function
 startEl.onclick = timer;
@@ -119,7 +119,7 @@ var answerClick = function(event) {
     var userAnswer = event.target.textContent;
     correctAnswer = questions[currentQuestionIndex].correct;
     //if statment determines if answer is wrong or right
-    var answerDetermination = document.querySelector("#answer-determination");
+    var answerDetermination = document.querySelector("#answer");
     if (userAnswer !== correctAnswer) {
         adjustTime(-10);
         answerDetermination.textContent = "Incorrect!";
